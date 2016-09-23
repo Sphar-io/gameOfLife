@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<style>
+		#a{
+			position:relative;
+			width: 80vh;
+			height: 80vh;
+			box-shadow: 10px 10px 50px #888888;
+		}
+		body{
+			font-family: 'Roboto', sans-serif;
+		}
+		#pauseButton{
+			width: 80px;
+		}
+	</style>
+
+	<title>Game of Life</title>	 
+	</head>
+	<body><link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<H2>Conway's Game of Life Simulator</H2>
+		<p>Instructions: Select a ruleset and generate a random pattern, then use buttons to control the simulation. "P" pauses and unpauses, and click and drag to draw cells manually. See <a href="http://www.bitstorm.org/gameoflife/lexicon/">this link </a> for patterns. 
+		<table style="width:80vw">
+			<tr>
+				<th></th>
+				<th>Simulation Settings</th>
+				<th>Controls</th>
+			</tr>
+			<tr>
+				<td><canvas id="a"></canvas></td>
+				<td style="vertical-align:top" style="">
+					<p>Select the ruleset</p>
+					<form>
+						<input type="radio" id= "conwayMode" name="ruleset" value="conway" onchange="changeGameMode()" checked> Original<br>
+						<input type="radio" id= "mazeMode" name="ruleset" value="maze" onchange="changeGameMode()"> Maze<br>
+					</form>
+					<p>Select fill % and size</p>
+					<input type="range" id="randomRange" onchange="generateRandom()" value = "0.75" min="0" max="1" step="0.01" >
+					<span id="sliderId">75% fill</span><br>
+					<input type="range" id="sizeRange" onchange="changeSize()" value = "75" min="0" max="100" step="1" >
+					<span id="rangeText">75% size</span>
+				</td>
+				<td style="vertical-align:top">
+					<input type="button" id="generateButton" onclick="generateRandom()" value="Regenerate">
+					<input type="button" id="pauseButton" onclick="pausePage()" value="Pause">
+					<input type="button" id="stepButton" onclick="stepButton()" value="Step">
+				</td>
+			</tr>
+		</table>
+		<br>
+		<p>Writen by Jonathan Sphar</p>
+		<script type='text/javascript' src='GOL.js'></script>
+	</body>
+</html>
